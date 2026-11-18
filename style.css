@@ -1,0 +1,76 @@
+:root{color-scheme:light;--ink:#344b5c;--ivory:#fff6db;--aqua:#79c4bf;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;background:#e9e5db;color:var(--ink);min-height:100svh}
+button,input,select{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #377d8e;outline-offset:4px}
+button:disabled{cursor:default}
+.garden{position:relative;isolation:isolate;margin:0 auto;width:100%;max-width:560px;height:100svh;min-height:650px;overflow:hidden;background:#ccd8d8;box-shadow:0 0 90px #263e4b1c}
+.scene,.scene-image,.bottom-shade,.drops{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.scene{z-index:-4}
+.scene-image{object-fit:cover;object-position:50% 55%}
+.lush-scene{opacity:0;transition:opacity .65s ease}
+.bottom-shade{z-index:-2;background:linear-gradient(transparent 69%,#3b452608 76%,#24351d65 100%)}
+.glass{border:1px solid #ffffefd9;background:linear-gradient(135deg,#fffdf458,#fff8e650);box-shadow:inset 0 1px 0 #ffffff88,0 7px 22px #414b4010;-webkit-backdrop-filter:blur(15px);backdrop-filter:blur(15px)}
+.header{position:absolute;top:max(22px,env(safe-area-inset-top));left:6%;right:6%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{width:max-content}
+.wordmark{font-family:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(33px,9.7vw,46px);font-weight:800;letter-spacing:-.065em;line-height:.95;white-space:nowrap}
+.tagline{font-size:clamp(11px,2.9vw,13px);letter-spacing:.015em;margin:6px 0 0 2px}
+.water-i{position:relative;display:inline-block;width:.19em;height:.73em;margin:0 .025em 0 .01em}
+.water-stem{position:absolute;inset:0;border-radius:99px;border:1px solid #429697;background:linear-gradient(110deg,#f0fff8 3%,#96d5ce 29%,#68b5b5 74%,#c9efe8);box-shadow:inset 1px 0 2px #fff}
+.water-dot{position:absolute;left:3%;width:94%;height:34%;top:-43%;border:1px solid #448d93;border-radius:70% 70% 70% 4%;transform:rotate(-45deg);background:linear-gradient(110deg,#f6fffc,#8dcfcb)}
+.plan-button{display:flex;align-items:center;gap:7px;color:var(--ink);border-radius:50px;padding:12px 14px;font-size:13px;font-weight:500}
+.plan-button svg{width:17px;height:17px}
+.dhikr-card{position:absolute;top:11.5%;left:5.4%;right:5.4%;padding:12px 15px 14px;text-align:center;border-radius:27px;background:linear-gradient(135deg,#fff9e6a3,#fffdf269)}
+.arabic{font-family:"Geeza Pro","Noto Naskh Arabic","Amiri",serif;font-size:clamp(32px,10vw,44px);font-weight:500;line-height:1.45;margin:0 0 1px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(21px,6vw,28px);font-weight:500;letter-spacing:-.03em;margin:0 0 8px;line-height:1.1}
+.meaning{font-size:clamp(12px,3.35vw,16px);margin:0;line-height:1.45}
+.garden-status{position:absolute;left:7%;right:7%;top:29%;margin:0;text-align:center;font-size:12px;line-height:1.45;color:#344b5cdc;text-shadow:0 1px 8px #fff9d0;opacity:0;transition:opacity .4s}
+.garden-status.visible{opacity:1}
+.counter-area{position:absolute;left:8%;right:7%;bottom:max(64px,calc(env(safe-area-inset-bottom) + 42px));display:flex;align-items:center;justify-content:space-between;gap:22px;color:var(--ivory)}
+.counter-info{min-width:0;flex:1}
+.counter-heading{display:flex;align-items:center;gap:15px;font-size:15px;font-weight:400}
+.undo-button{display:grid;place-items:center;background:transparent;border:0;color:var(--ivory);width:34px;height:34px;padding:7px;opacity:.8}
+.undo-button:disabled{opacity:.2}
+.undo-button svg{width:20px;height:20px}
+.count-line{display:flex;align-items:baseline;gap:8px;font-family:Georgia,"Times New Roman",serif;font-variant-numeric:tabular-nums;line-height:1.15;white-space:nowrap}
+#count{font-size:clamp(43px,12vw,64px);font-weight:400;letter-spacing:-.04em}
+#goal{font-size:clamp(24px,7vw,36px)}
+.count-divider{font-size:29px;opacity:.8}
+.count-line.long #count{font-size:clamp(28px,8vw,42px)}
+.count-line.long #goal{font-size:22px}
+.count-line.long{gap:5px}
+.progress-track{height:5px;background:#fff7df3d;max-width:190px;width:100%;border-radius:10px;margin-top:11px;overflow:hidden}
+.progress-track>div{width:0;height:100%;background:#fff3ca;border-radius:inherit;transition:width .3s ease}
+.progress-caption{font-size:11px;line-height:1.5;margin:9px 0 0;color:#fff7e1dc}
+.count-button{position:relative;flex-shrink:0;display:grid;place-items:center;width:clamp(108px,30vw,142px);aspect-ratio:1;border-radius:50%;border-width:1.5px;background:linear-gradient(140deg,#fff8d842,#e7f0d927);color:var(--ivory);box-shadow:inset 0 0 22px #fffad20d,0 5px 20px #27301e0c;transition:transform .15s,background .15s}
+.count-button:active{transform:scale(.96);background:#e6f2d95c}
+.tap-dot{width:13px;height:13px;border-radius:50%;background:#fff3c8;box-shadow:0 0 20px #fff8df44}
+.count-button.pulse .tap-dot{animation:tap-glow .3s ease}
+.tap-hint{position:absolute;left:5%;right:5%;bottom:max(22px,calc(env(safe-area-inset-bottom) + 12px));margin:0;text-align:center;color:#fff8e1bd;font-size:10px;line-height:1.5}
+.drops{z-index:-1;overflow:hidden}
+.falling-drop{position:absolute;left:78%;top:40%;width:10px;height:16px;border:1px solid #ffffffdb;border-radius:70% 70% 70% 4%;background:linear-gradient(135deg,#f2fffbe6,#81c6cecc);box-shadow:1px 2px 5px #377d8e25;transform:rotate(-45deg);animation:fall .8s cubic-bezier(.3,.1,.65,.55) both}
+@keyframes fall{0%{opacity:0;translate:0 0;scale:.7}12%{opacity:1;scale:1}88%{opacity:1}100%{translate:-12vw 30svh;opacity:0;scale:.4}}
+@keyframes tap-glow{0%{scale:.8;box-shadow:0 0 0 0 #fff8e155}100%{scale:1;box-shadow:0 0 0 20px #fff8e100}}
+.toast{position:absolute;z-index:4;left:8%;right:8%;bottom:26%;padding:12px 16px;border:1px solid #ffffffc4;border-radius:20px;color:var(--ink);text-align:center;font-size:13px;background:#fff9e8e6;box-shadow:0 5px 20px #233b301a;opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .2s,transform .2s}
+.toast.show{opacity:1;transform:none}
+.plan-dialog{color:var(--ink);width:min(90vw,410px);max-height:90svh;padding:34px 26px 24px;border-radius:30px;background:linear-gradient(145deg,#fff9ede8,#f6f1dfe0);box-shadow:0 18px 60px #2d44302b}
+.plan-dialog::backdrop{background:#43534320;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.close-button{position:absolute;right:15px;top:11px;width:36px;height:36px;color:var(--ink);background:transparent;border:0;border-radius:50%;font-size:29px;font-weight:300}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:33px;font-weight:500;text-align:center;margin:1px 0 10px}
+.dialog-intro{text-align:center;font-size:14px;line-height:1.5;margin:0 0 26px;opacity:.85}
+label{display:block;font-size:13px;font-weight:500;margin:18px 0 8px}
+input,select{display:block;width:100%;color:var(--ink);font-size:16px;padding:13px 14px;min-height:48px;border:1px solid #fffcf0;border-radius:13px;background:#fffff164;box-shadow:inset 0 1px 2px #40534205}
+input::placeholder{color:#667b7c99}
+.plan-help{font-size:12px;line-height:1.5;margin:10px 0 0;opacity:.78}
+.form-error{color:#9b4d36;font-size:12px;line-height:1.5;margin:8px 0;min-height:18px}
+.primary-button{display:block;width:100%;padding:14px 16px;border-radius:40px;border:1px solid #fffef3;background:linear-gradient(120deg,#cbe9dfd9,#b5e0d9d9,#e9efd7ba);color:var(--ink);font-size:17px;font-weight:600}
+.local-note{font-size:10px;line-height:1.5;text-align:center;opacity:.7;margin:18px 7px 0}
+.install-area{margin-top:16px;padding-top:14px;border-top:1px solid #344b5c14;text-align:center}
+.install-button{border:1px solid #7da3a34d;border-radius:30px;background:#f5faf25e;color:var(--ink);padding:11px 18px;font-size:13px}
+.install-button[hidden]{display:none}
+.offline-status{font-size:11px;line-height:1.5;margin:8px 0 0;color:#4e6967}
+.noscript{position:fixed;inset:auto 5% 35%;padding:24px;background:#fff4df;border-radius:20px;color:var(--ink)}
+@media(min-width:600px){body{padding:18px;display:grid;place-items:center;background:radial-gradient(ellipse at top,#f6efe2,#d5ddd4)}.garden{border-radius:30px;height:calc(100svh - 36px);max-width:490px;min-height:680px;max-height:980px;border:1px solid #fff6e8}}
+@media(max-height:730px){.header{top:15px}.dhikr-card{top:12.5%;padding:10px 12px 14px}.arabic{font-size:36px;line-height:1.5}h1{font-size:22px}.garden-status{top:36%;font-size:10px}.counter-area{bottom:51px}.count-button{width:108px}.tap-hint{bottom:17px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

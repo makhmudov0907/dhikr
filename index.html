@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#efe9dc">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Dhikr">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Ваш зикр, ваша дневная цель и одна олива. Простой счётчик с сохранением прогресса на устройстве.">
+  <title>Dhikr — ваша олива</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/drop.svg">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+  <script type="module" src="./pwa.mjs"></script>
+</head>
+<body>
+  <main class="garden" id="garden">
+    <div class="scene" aria-hidden="true">
+      <img class="scene-image" src="./assets/olive-dry.png" alt="" fetchpriority="high">
+      <img class="scene-image lush-scene" id="lushScene" src="./assets/olive-lush.png" alt="">
+    </div>
+    <div class="bottom-shade" aria-hidden="true"></div>
+    <div class="drops" id="drops" aria-hidden="true"></div>
+    <header class="header">
+      <div class="brand" aria-label="Dhikr: Build Your Habit">
+        <div class="wordmark" aria-hidden="true">Dh<span class="water-i"><span class="water-dot"></span><span class="water-stem"></span></span>kr:</div>
+        <div class="tagline" aria-hidden="true">Build Your Habit</div>
+      </div>
+      <button class="plan-button glass" id="editPlan" type="button" aria-haspopup="dialog" aria-label="Изменить дневной план">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m15 4 5 5M4 20l4.5-1L20 7.5a2.1 2.1 0 0 0-3-3L5.5 16 4 20Z"/></svg>
+        <span>План</span>
+      </button>
+    </header>
+    <section class="dhikr-card glass" aria-label="Текущий зикр">
+      <p class="arabic" id="arabic" lang="ar" dir="rtl">أَسْتَغْفِرُ اللَّهَ</p>
+      <h1 id="dhikrName">Астагфируллах</h1>
+      <p class="meaning" id="meaning">Прошу прощения у Аллаха</p>
+    </section>
+    <p class="garden-status" id="gardenStatus">Ваша олива, ваш ритм</p>
+    <section class="counter-area" aria-label="Дневной прогресс">
+      <div class="counter-info">
+        <div class="counter-heading">
+          <span>Сегодня</span>
+          <button class="undo-button" id="undoButton" type="button" aria-label="Отменить последнее нажатие" title="Отменить последнее нажатие" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m8 5-5 5 5 5M3 10h10a6 6 0 1 1 0 12" transform="translate(1 -2)"/></svg>
+          </button>
+        </div>
+        <div class="count-line"><output id="count">0</output><span class="count-divider">/</span><span id="goal">—</span></div>
+        <div class="progress-track" id="progress" role="progressbar" aria-label="Выполнение дневной цели" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progressFill"></div></div>
+        <p class="progress-caption" id="progressCaption">Установите свою цель</p>
+      </div>
+      <button class="count-button glass" id="countButton" type="button" aria-label="Добавить один зикр">
+        <span class="tap-dot" aria-hidden="true"></span>
+      </button>
+    </section>
+    <p class="tap-hint" id="tapHint">Нажимайте на круг — один раз за каждый зикр</p>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <dialog class="plan-dialog glass" id="planDialog" aria-labelledby="planTitle">
+    <button class="close-button" id="closePlan" type="button" aria-label="Закрыть план">×</button>
+    <h2 id="planTitle">Ваш план</h2>
+    <p class="dialog-intro">Один зикр и ваша цель на день.</p>
+    <form id="planForm" novalidate>
+      <label for="dhikrSelect">Зикр</label>
+      <select id="dhikrSelect" name="dhikr">
+        <option value="astaghfirullah">Астагфируллах</option>
+        <option value="subhanallah">Субханаллах</option>
+        <option value="alhamdulillah">Альхамдулиллях</option>
+        <option value="allahuakbar">Аллаху акбар</option>
+      </select>
+      <label for="goalInput">Повторений в день</label>
+      <input id="goalInput" name="goal" type="text" inputmode="numeric" pattern="[0-9]+" placeholder="Например, 100" autocomplete="off" required aria-describedby="planHelp planError">
+      <p class="plan-help" id="planHelp">Количество выбираете вы.</p>
+      <p class="form-error" id="planError" role="alert"></p>
+      <button class="primary-button" id="savePlan" type="submit">Начать</button>
+    </form>
+    <p class="local-note">План и прогресс сохраняются на этом устройстве.</p>
+    <div class="install-area">
+      <button class="install-button" id="installButton" type="button" hidden>Установить Dhikr</button>
+      <p class="offline-status" id="offlineStatus" role="status" aria-live="polite">Подготовка к работе без интернета…</p>
+    </div>
+  </dialog>
+  <noscript><div class="noscript">Для счётчика нужен JavaScript. Включите его в настройках браузера и откройте страницу снова.</div></noscript>
+</body>
+</html>

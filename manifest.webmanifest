@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "Dhikr: Build Your Habit",
+  "short_name": "Dhikr",
+  "description": "Ваш зикр, ваша дневная цель и одна олива.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#efe9dc",
+  "theme_color": "#efe9dc",
+  "icons": [
+    {"src": "./assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "./assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "./assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}

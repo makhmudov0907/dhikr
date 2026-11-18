@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff7e8"/>
+      <stop offset=".55" stop-color="#efe9dc"/>
+      <stop offset="1" stop-color="#ccdfd9"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#eafff5"/>
+      <stop offset=".35" stop-color="#9ddbd3"/>
+      <stop offset=".8" stop-color="#69b5b7"/>
+      <stop offset="1" stop-color="#bfe8df"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#paper)"/>
+  <circle cx="65" cy="50" r="290" fill="#ffffff" opacity=".16"/>
+  <g id="wordmark" transform="translate(256 256) scale(1.12) translate(-256 -256)">
+    <g fill="#344b5c" font-family="DejaVu Sans, sans-serif" font-size="104" font-weight="700" letter-spacing="-6">
+      <text x="93" y="302">Dh</text>
+      <text x="274" y="302">kr</text>
+    </g>
+    <rect x="247" y="238" width="16" height="64" rx="8" fill="url(#water)" stroke="#589c9e" stroke-width="1.5"/>
+    <path d="M255 204C252 210 247 214 247 220a8 8 0 0 0 16 0c0-6-5-10-8-16Z" fill="url(#water)" stroke="#589c9e" stroke-width="1.5"/>
+    <path d="M251 245v45" stroke="#f4fff9" stroke-width="2.5" stroke-linecap="round" opacity=".75"/>
+  </g>
+</svg>
